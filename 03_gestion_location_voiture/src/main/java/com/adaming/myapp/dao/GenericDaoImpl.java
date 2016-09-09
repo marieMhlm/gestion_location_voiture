@@ -29,20 +29,20 @@ public abstract class GenericDaoImpl<T> implements IGenericDAO<T> {
 	public GenericDaoImpl(){
 		Type t = getClass().getGenericSuperclass(); 
 		ParameterizedType pt = (ParameterizedType) t; 
-		type = (Class) pt.getActualTypeArguments()[0];
+		type = (Class<T>) pt.getActualTypeArguments()[0];
 	}
 
 	@Override
 	public T add(T t) {
 		this.em.persist(t);
-		log.info("C'est bien été ajouté ");
+		log.info("le " + type.getSimpleName()+ " a bien été ajouté ");
 		return t;
 	}
 
 	@Override
 	public T update(T t) {
 		this.em.merge(t);
-		log.info("C'est bien été modifié ");
+		log.info("le " + type.getSimpleName()+ " a bien été modifié ");
 		return t;
 	}
 
@@ -57,7 +57,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDAO<T> {
 	@Override
 	public T getById(Long pId) {
 		T t = this.em.find(type, pId);
-		log.info("C'est bien été trouvé ");
+		log.info("le " + type.getSimpleName()+ " a bien été trouvé ");
 		return t;
 	}
 

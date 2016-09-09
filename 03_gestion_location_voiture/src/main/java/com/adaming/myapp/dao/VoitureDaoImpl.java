@@ -18,7 +18,7 @@ import com.adaming.myapp.entities.Voiture;
  * @author inti0255
  *
  */
-@Repository("voitureDao")
+@Repository
 public class VoitureDaoImpl extends GenericDaoImpl<Voiture> implements IVoitureDao {
 	
 

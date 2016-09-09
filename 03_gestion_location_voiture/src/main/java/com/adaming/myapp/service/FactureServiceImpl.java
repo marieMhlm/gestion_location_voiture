@@ -2,57 +2,54 @@ package com.adaming.myapp.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adaming.myapp.dao.IClientDao;
-import com.adaming.myapp.entities.Client;
-
+import com.adaming.myapp.dao.IFactureDao;
+import com.adaming.myapp.entities.Facture;
 
 /**
  * Version 1.0
  * 09/09/2016
  * @author inti0255
+ *
  */
-@Service("serviceClient")
+@Service
 @Transactional
-public class ClientServiceImpl implements IClientService{
+public class FactureServiceImpl implements IFactureService {
 	
-	Logger log = Logger.getLogger("ClientServiceImpl");
+	Logger log = Logger.getLogger("FactureServiceImpl");
 	
-	@Inject
-	private IClientDao dao = null; 
+	private IFactureDao dao = null; 
 	
 	/**
 	 * @param dao the dao to set
 	 */
-	public void setDao(IClientDao dao) {
+	public void setDao(IFactureDao dao) {
 		this.dao = dao;
 	}
 
 	@Override
-	public Client add(Client client) {
+	public Facture add(Facture facture) {
 		// TODO Auto-generated method stub
-		return dao.add(client);
+		return dao.add(facture);
 	}
 
 	@Override
-	public Client update(Client client) {
+	public Facture update(Facture facture) {
 		// TODO Auto-generated method stub
-		return dao.update(client);
+		return dao.update(facture);
 	}
 
 	@Override
-	public List<Client> getAll() {
+	public List<Facture> getAll() {
 		// TODO Auto-generated method stub
 		return dao.getAll();
 	}
 
 	@Override
-	public Client getById(Long pId) {
+	public Facture getById(Long pId) {
 		// TODO Auto-generated method stub
 		return dao.getById(pId);
 	}

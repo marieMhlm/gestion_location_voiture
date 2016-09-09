@@ -19,7 +19,7 @@ import com.adaming.myapp.entities.Reservation;
  * @author inti0255
  *
  */
-@Repository("reservationDao")
+@Repository
 public class ReservationDaoImpl extends GenericDaoImpl<Reservation> implements IReservationDao{
 
 }

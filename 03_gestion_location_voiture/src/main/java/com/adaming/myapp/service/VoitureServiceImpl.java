@@ -2,57 +2,54 @@ package com.adaming.myapp.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adaming.myapp.dao.IClientDao;
-import com.adaming.myapp.entities.Client;
-
+import com.adaming.myapp.dao.IVoitureDao;
+import com.adaming.myapp.entities.Voiture;
 
 /**
  * Version 1.0
  * 09/09/2016
  * @author inti0255
+ *
  */
-@Service("serviceClient")
+@Service
 @Transactional
-public class ClientServiceImpl implements IClientService{
+public class VoitureServiceImpl implements IVoitureService{
 	
-	Logger log = Logger.getLogger("ClientServiceImpl");
+	Logger log = Logger.getLogger("VoitureServiceImpl");
 	
-	@Inject
-	private IClientDao dao = null; 
+	private IVoitureDao dao = null; 
 	
 	/**
 	 * @param dao the dao to set
 	 */
-	public void setDao(IClientDao dao) {
+	public void setDao(IVoitureDao dao) {
 		this.dao = dao;
 	}
 
 	@Override
-	public Client add(Client client) {
+	public Voiture add(Voiture voiture) {
 		// TODO Auto-generated method stub
-		return dao.add(client);
+		return dao.add(voiture);
 	}
 
 	@Override
-	public Client update(Client client) {
+	public Voiture update(Voiture voiture) {
 		// TODO Auto-generated method stub
-		return dao.update(client);
+		return dao.update(voiture);
 	}
 
 	@Override
-	public List<Client> getAll() {
+	public List<Voiture> getAll() {
 		// TODO Auto-generated method stub
 		return dao.getAll();
 	}
 
 	@Override
-	public Client getById(Long pId) {
+	public Voiture getById(Long pId) {
 		// TODO Auto-generated method stub
 		return dao.getById(pId);
 	}

@@ -12,10 +12,12 @@
 	<!-- =========================================================== -->
 	<!--	injection des entites	-->
 	<!-- =========================================================== -->	
-<!-- 	<bean id="daoChambre" class="com.adaming.myapp.dao.ChambreDaoImpl"/> -->
-<!-- 	<bean id="serviceChambre" class="com.adaming.myapp.service.ChambreServiceImpl"> -->
-<!-- 		<property name="dao" ref="daoChambre"></property> -->
-<!-- 	</bean> -->
+	<bean id="daoClient" class="com.adaming.myapp.dao.ClientDaoImpl"/>
+	<bean id="serviceClient" class="com.adaming.myapp.service.ClientServiceImpl">
+		<property name="dao" ref="daoClient"></property>
+	</bean>
+	
+
 
 	
 	<!-- =========================================================== -->
@@ -59,6 +61,4 @@
 	
 	<context:annotation-config></context:annotation-config>
 	
-	
-
 </beans>

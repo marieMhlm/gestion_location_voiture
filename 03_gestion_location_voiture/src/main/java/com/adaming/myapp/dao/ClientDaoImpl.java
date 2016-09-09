@@ -12,7 +12,7 @@ import com.adaming.myapp.entities.Client;
  * @author inti0255
  *
  */
-@Repository("clientDao")
+@Repository("daoClient")
 public class ClientDaoImpl extends GenericDaoImpl<Client> implements IClientDao{
 	
 

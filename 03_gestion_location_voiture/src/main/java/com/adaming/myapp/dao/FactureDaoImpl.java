@@ -19,7 +19,7 @@ import com.adaming.myapp.entities.Facture;
  * @author inti0255
  *
  */
-@Repository("factureDao")
+@Repository
 public class FactureDaoImpl extends GenericDaoImpl<Facture> implements IFactureDao {
 	
 }

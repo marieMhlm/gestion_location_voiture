@@ -2,59 +2,57 @@ package com.adaming.myapp.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adaming.myapp.dao.IClientDao;
-import com.adaming.myapp.entities.Client;
-
+import com.adaming.myapp.dao.IReservationDao;
+import com.adaming.myapp.entities.Reservation;
 
 /**
  * Version 1.0
  * 09/09/2016
  * @author inti0255
+ *
  */
-@Service("serviceClient")
+@Service
 @Transactional
-public class ClientServiceImpl implements IClientService{
+public class ReservationServiceImpl implements IReservationService{
 	
-	Logger log = Logger.getLogger("ClientServiceImpl");
+	Logger log = Logger.getLogger("ReservationServiceImpl");
 	
-	@Inject
-	private IClientDao dao = null; 
-	
+	private IReservationDao dao = null; 
+
 	/**
 	 * @param dao the dao to set
 	 */
-	public void setDao(IClientDao dao) {
+	public void setDao(IReservationDao dao) {
 		this.dao = dao;
 	}
 
 	@Override
-	public Client add(Client client) {
+	public Reservation add(Reservation reservation) {
 		// TODO Auto-generated method stub
-		return dao.add(client);
+		return dao.add(reservation);
 	}
 
 	@Override
-	public Client update(Client client) {
+	public Reservation update(Reservation reservation) {
 		// TODO Auto-generated method stub
-		return dao.update(client);
+		return dao.update(reservation);
 	}
 
 	@Override
-	public List<Client> getAll() {
+	public List<Reservation> getAll() {
 		// TODO Auto-generated method stub
 		return dao.getAll();
 	}
 
 	@Override
-	public Client getById(Long pId) {
+	public Reservation getById(Long pId) {
 		// TODO Auto-generated method stub
 		return dao.getById(pId);
 	}
 
+	
 }

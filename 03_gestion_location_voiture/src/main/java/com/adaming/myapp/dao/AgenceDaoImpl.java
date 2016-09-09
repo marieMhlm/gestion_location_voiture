@@ -26,7 +26,7 @@ import com.adaming.myapp.entities.Voiture;
  * @author inti0255
  *
  */
-@Repository("agenceDao")
+@Repository
 public class AgenceDaoImpl extends GenericDaoImpl<Agence> implements IAgenceDao {
 	
 //	@PersistenceContext
