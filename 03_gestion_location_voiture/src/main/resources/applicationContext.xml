@@ -12,9 +12,10 @@
 	<!-- =========================================================== -->
 	<!--	injection des entites	-->
 	<!-- =========================================================== -->	
-	<bean id="daoClient" class="com.adaming.myapp.dao.ClientDaoImpl"/>
+	
+	<bean id="daoCLient" class="com.adaming.myapp.dao.ClientDaoImpl"/>
 	<bean id="serviceClient" class="com.adaming.myapp.service.ClientServiceImpl">
-		<property name="dao" ref="daoClient"></property>
+		<property name="dao" ref="daoCLient"></property>
 	</bean>
 	
 

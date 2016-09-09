@@ -49,11 +49,13 @@ public class ServiceClientTestU {
 	}
 
 	@Test
+	@Ignore
 	public void testGetAll() {
 		fail("Not yet implemented");
 	}
 
 	@Test
+	@Ignore
 	public void testGetById() {
 		fail("Not yet implemented");
 	}
