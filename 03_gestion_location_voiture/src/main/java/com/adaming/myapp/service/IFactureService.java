@@ -4,13 +4,19 @@ import java.util.List;
 
 import com.adaming.myapp.entities.Facture;
 
+/**
+ * Version 1.0
+ * 06/09/2016
+ * @author inti0255
+ *
+ */
 public interface IFactureService {
 
-	public Facture add(Client client);
+	public Facture add(Facture facture);
 	
-	public Client update(Client client);
+	public Facture update(Facture facture);
 	
-	public List<Client> getAll();
+	public List<Facture> getAll();
 	
-	public Client getById(Long pId);
+	public Facture getById(Long pId);	
 }
