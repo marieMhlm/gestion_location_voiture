@@ -1,5 +1,6 @@
 package com.adaming.myapp.service;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adaming.myapp.dao.IAgenceDao;
 import com.adaming.myapp.entities.Agence;
+import com.adaming.myapp.entities.Client;
 import com.adaming.myapp.entities.Reservation;
 import com.adaming.myapp.entities.Voiture;
 
@@ -18,7 +20,6 @@ import com.adaming.myapp.entities.Voiture;
  * @author inti0255
  *
  */
-@Service
 @Transactional
 public class AgenceServiceImpl implements IAgenceService {
 	
@@ -54,33 +55,33 @@ public class AgenceServiceImpl implements IAgenceService {
 	}
 
 	@Override
-	public List<Voiture> findCarLocated(Long pIdAgence, Date dateRetour) {
+	public List<Voiture> findCarLocated(Long pIdAgence, String dateRetour) {
 		return dao.findCarLocated(pIdAgence, dateRetour);
 	}
 
 	@Override
-	public List<Voiture> findCarDispo(Long pIdAgence, Date dateDebut,
-			Date dateRetour) {
+	public List<Voiture> findCarDispo(Long pIdAgence, String dateDebut,
+			String dateRetour) {
 		// TODO Auto-generated method stub
 		return dao.findCarDispo(pIdAgence, dateDebut, dateRetour);
 	}
 
 	@Override
-	public double getChiffreAffaireAnnuel(Long pIdAgence) {
+	public double getChiffreAffaireAnnuel(Long pIdAgence, String annee){
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.getChiffreAffaireAnnuel(pIdAgence, annee);
 	}
 
 	@Override
-	public List<Reservation> findResaByClient(Long pIdAgence) {
+	public List<Reservation> findResaByClient(Long pIdAgence, Long pIdClient) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findResaByClient(pIdAgence, pIdClient);
 	}
 
 	@Override
 	public List<Reservation> findResaByAgence(Long pIdAgence) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findResaByAgence(pIdAgence);
 	}
 
 }

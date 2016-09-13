@@ -43,9 +43,10 @@ public class Agence {
 	@OneToMany(mappedBy="agence", fetch=FetchType.EAGER)
 	private List<Reservation> reservations; 
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="agences_clients",joinColumns=@JoinColumn(name="agence_id", referencedColumnName="id_agence"),
-									inverseJoinColumns=@JoinColumn(name="client_id"))								
+//	@ManyToMany(cascade=CascadeType.ALL)
+//	@JoinTable(name="agences_clients",joinColumns=@JoinColumn(name="agence_id", referencedColumnName="id_agence"),
+//									inverseJoinColumns=@JoinColumn(name="client_id"))		
+	@OneToMany(mappedBy="agence")
 	private List<Client> clients; 
 	
 	/**

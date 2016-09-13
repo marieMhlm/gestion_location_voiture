@@ -1,8 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
-	<h1>HELLO</h1>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Welcome Page</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<f:view>
+			<h:form>
+
+				<p:commandButton value="Client"  action="clientAccueil?faces-redirect=true" styleClass="ui-priority-primary"/>
+				<p:commandButton value="Agence"  action="agenceAccueil?faces-redirect=true" styleClass="ui-priority-primary"/>
+				
+			</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
 </html>

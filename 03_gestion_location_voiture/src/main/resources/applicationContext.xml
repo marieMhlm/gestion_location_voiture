@@ -18,8 +18,25 @@
 		<property name="dao" ref="daoCLient"></property>
 	</bean>
 	
+	<bean id="daoReservation" class="com.adaming.myapp.dao.ReservationDaoImpl"/>
+	<bean id="serviceReservation" class="com.adaming.myapp.service.ReservationServiceImpl">
+		<property name="dao" ref="daoReservation"></property>
+	</bean>
 
-
+	<bean id="daoFacture" class="com.adaming.myapp.dao.FactureDaoImpl"/>
+	<bean id="serviceFacture" class="com.adaming.myapp.service.FactureServiceImpl">
+		<property name="dao" ref="daoFacture"></property>
+	</bean>
+	
+	<bean id="daoVoiture" class="com.adaming.myapp.dao.VoitureDaoImpl"/>
+	<bean id="serviceVoiture" class="com.adaming.myapp.service.VoitureServiceImpl">
+		<property name="dao" ref="daoVoiture"></property>
+	</bean>
+	
+	<bean id="daoAgence" class="com.adaming.myapp.dao.AgenceDaoImpl"/>
+	<bean id="serviceAgence" class="com.adaming.myapp.service.AgenceServiceImpl">
+		<property name="dao" ref="daoAgence"></property>
+	</bean>
 	
 	<!-- =========================================================== -->
 	<!--		-->

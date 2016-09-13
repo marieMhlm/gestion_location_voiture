@@ -17,7 +17,6 @@ import com.adaming.myapp.entities.Client;
  * 09/09/2016
  * @author inti0255
  */
-@Service("serviceClient")
 @Transactional
 public class ClientServiceImpl implements IClientService{
 	
@@ -34,9 +33,9 @@ public class ClientServiceImpl implements IClientService{
 	}
 
 	@Override
-	public Client add(Client client) {
+	public Client add(Client client, Long pIdAgence) {
 		// TODO Auto-generated method stub
-		return dao.add(client);
+		return dao.add(client, pIdAgence);
 	}
 
 	@Override

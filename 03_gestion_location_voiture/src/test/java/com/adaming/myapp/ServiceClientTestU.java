@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import junit.framework.Assert;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -14,18 +17,25 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.adaming.myapp.dao.IClientDao;
 import com.adaming.myapp.entities.Client;
+import com.adaming.myapp.service.IClientService;
 
+/**
+ * Version 1.0
+ * 09/09/2016
+ * @author inti0255
+ *
+ */
 public class ServiceClientTestU {
 	
 	private static ClassPathXmlApplicationContext context;
-	private static IClientDao clientService; 
+	private static IClientService clientService; 
 	
 	SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		clientService = (IClientDao) context.getBean("serviceClient");
+		clientService = (IClientService) context.getBean("serviceClient");
 	}
 
 	@AfterClass
@@ -38,26 +48,29 @@ public class ServiceClientTestU {
 		Date datebirth = date.parse("13/06/1995");
 		Date datePermis = date.parse("21/08/2015");
 		Client cl = new Client("Mimi", "Marie", datebirth, "0236548521", "Tours", "mm@gmail.com", datePermis);
-		clientService.add(cl);
+		clientService.add(cl, 1L);
 		assertTrue(cl!=null);
 	}
 
 	@Test
-	@Ignore
 	public void testUpdate() {
-		fail("Not yet implemented");
+		Client cl = clientService.getById(1L);
+		cl.setNom("dododo");
+		clientService.update(cl);
+		Client cl1 = clientService.getById(1L);
+		Assert.assertEquals("", "dododo", cl1.getNom());
 	}
 
 	@Test
-	@Ignore
 	public void testGetAll() {
-		fail("Not yet implemented");
+		List<Client> c = clientService.getAll(); 
+		assertTrue(c.size()>0);
 	}
 
 	@Test
-	@Ignore
 	public void testGetById() {
-		fail("Not yet implemented");
+		Client cl = clientService.getById(1L);
+		assertTrue(cl!=null);
 	}
 
 }

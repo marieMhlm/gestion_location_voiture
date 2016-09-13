@@ -12,7 +12,7 @@ import com.adaming.myapp.entities.Client;
  */
 public interface IClientService {
 
-	public Client add(Client client);
+	public Client add(Client client, Long pIdAgence);
 	
 	public Client update(Client client);
 	

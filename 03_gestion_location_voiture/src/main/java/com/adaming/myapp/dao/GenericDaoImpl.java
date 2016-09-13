@@ -33,13 +33,6 @@ public abstract class GenericDaoImpl<T> implements IGenericDAO<T> {
 	}
 
 	@Override
-	public T add(T t) {
-		this.em.persist(t);
-		log.info("le " + type.getSimpleName()+ " a bien été ajouté ");
-		return t;
-	}
-
-	@Override
 	public T update(T t) {
 		this.em.merge(t);
 		log.info("le " + type.getSimpleName()+ " a bien été modifié ");

@@ -1,6 +1,5 @@
 package com.adaming.myapp.service;
 
-import java.util.Date;
 import java.util.List;
 
 import com.adaming.myapp.entities.Agence;
@@ -20,12 +19,9 @@ public interface IAgenceService {
 	public List<Agence> getAll();
 	public Agence getById(Long pId);
 
-	public List<Voiture> findCarLocated(Long pIdAgence, Date dateRetour);
-	public List<Voiture> findCarDispo(Long pIdAgence, Date dateDebut ,Date dateRetour);
-	
-	public double getChiffreAffaireAnnuel(Long pIdAgence); 
-	
-	public List<Reservation> findResaByClient(Long pIdAgence);
-	
+	public List<Voiture> findCarLocated(Long pIdAgence, String dateRetour);
+	public List<Voiture> findCarDispo(Long pIdAgence, String dateDebut ,String dateRetour);
+	public double getChiffreAffaireAnnuel(Long pIdAgence, String annee); 
+	public List<Reservation> findResaByClient(Long pIdAgence, Long pIdClient);
 	public List<Reservation> findResaByAgence(Long pIdAgence);
 }

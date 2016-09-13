@@ -10,4 +10,5 @@ import com.adaming.myapp.entities.Voiture;
  */
 public interface IVoitureDao extends IGenericDAO<Voiture> {
 
+	public Voiture add(Voiture voiture, Long pIdAgence);
 }

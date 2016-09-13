@@ -15,7 +15,6 @@ import com.adaming.myapp.entities.Facture;
  * @author inti0255
  *
  */
-@Service
 @Transactional
 public class FactureServiceImpl implements IFactureService {
 	
@@ -31,9 +30,9 @@ public class FactureServiceImpl implements IFactureService {
 	}
 
 	@Override
-	public Facture add(Facture facture) {
+	public Facture add(Facture facture,  Long idReservation, Long idAgence) {
 		// TODO Auto-generated method stub
-		return dao.add(facture);
+		return dao.add(facture, idReservation, idAgence);
 	}
 
 	@Override
@@ -52,6 +51,10 @@ public class FactureServiceImpl implements IFactureService {
 	public Facture getById(Long pId) {
 		// TODO Auto-generated method stub
 		return dao.getById(pId);
+	}
+
+	public void printPdf(Facture facture){
+		
 	}
 
 }

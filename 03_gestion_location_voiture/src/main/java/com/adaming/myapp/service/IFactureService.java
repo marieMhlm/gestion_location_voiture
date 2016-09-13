@@ -12,11 +12,12 @@ import com.adaming.myapp.entities.Facture;
  */
 public interface IFactureService {
 
-	public Facture add(Facture facture);
+	public Facture add(Facture facture, Long idReservation, Long idAgence);
 	
 	public Facture update(Facture facture);
 	
 	public List<Facture> getAll();
 	
 	public Facture getById(Long pId);	
+
 }

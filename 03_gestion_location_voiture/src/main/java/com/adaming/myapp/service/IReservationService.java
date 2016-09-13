@@ -13,11 +13,12 @@ import com.adaming.myapp.entities.Reservation;
  */
 public interface IReservationService {
 
-	public Reservation add(Reservation reservation);
+	public Reservation add(Reservation reservation, Long pIdAgence, Long pIdClient, Long pIdVoiture);
 	
 	public Reservation update(Reservation reservation);
 	
 	public List<Reservation> getAll();
 	
 	public Reservation getById(Long pId);
+	
 }

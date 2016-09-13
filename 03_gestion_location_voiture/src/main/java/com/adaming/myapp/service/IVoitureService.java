@@ -12,7 +12,7 @@ import com.adaming.myapp.entities.Voiture;
  */
 public interface IVoitureService {
 
-	public Voiture add(Voiture voiture);
+	public Voiture add(Voiture voiture, Long pIdAgence);
 	
 	public Voiture update(Voiture voiture);
 	

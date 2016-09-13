@@ -1,9 +1,14 @@
 package com.adaming.myapp.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+import org.apache.log4j.Logger;
+
+import com.adaming.myapp.entities.Agence;
 import com.adaming.myapp.entities.Client;
 
 /**
@@ -14,5 +19,18 @@ import com.adaming.myapp.entities.Client;
  */
 public class ClientDaoImpl extends GenericDaoImpl<Client> implements IClientDao{
 	
-	
+	@PersistenceContext
+	protected EntityManager em; 
+		
+	Logger log = Logger.getLogger("ClientDaoImpl");
+
+	@Override
+	public Client add(Client client, Long pIdAgence) {
+		Agence a = em.find(Agence.class, pIdAgence);
+		client.setAgence(a);;
+		em.persist(client);
+		log.info("le client a bien été ajouté ");
+		return client;
+	}
+
 }

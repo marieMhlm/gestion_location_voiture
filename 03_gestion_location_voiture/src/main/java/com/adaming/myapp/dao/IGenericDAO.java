@@ -9,8 +9,6 @@ import java.util.List;
  *
  */
 public interface IGenericDAO<T> {
-
-	public T add(T t);
 	
 	public T update(T t);
 	

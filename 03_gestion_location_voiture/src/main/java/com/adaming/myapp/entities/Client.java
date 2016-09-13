@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,8 +39,10 @@ public class Client {
 	@Temporal(TemporalType.DATE)
 	private Date datePermis;
 	
-	@ManyToMany(mappedBy="clients", cascade=CascadeType.ALL)
-	private List<Agence> agences; 
+//	@ManyToMany(mappedBy="clients", cascade=CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name="agence_id",referencedColumnName="id_agence")
+	private Agence agence; 
 	
 	@OneToMany(mappedBy="client")
 	private List<Reservation> reservations; 
@@ -185,17 +189,17 @@ public class Client {
 	}
 
 	/**
-	 * @return the agences
+	 * @return the agence
 	 */
-	public List<Agence> getAgences() {
-		return agences;
+	public Agence getAgence() {
+		return agence;
 	}
 
 	/**
-	 * @param agences the agences to set
+	 * @param agence the agence to set
 	 */
-	public void setAgences(List<Agence> agences) {
-		this.agences = agences;
+	public void setAgence(Agence agence) {
+		this.agence = agence;
 	}
 
 	/**

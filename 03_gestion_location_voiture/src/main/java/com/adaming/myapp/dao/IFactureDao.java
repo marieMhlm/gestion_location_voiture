@@ -10,4 +10,6 @@ import com.adaming.myapp.entities.Facture;
  */
 public interface IFactureDao extends IGenericDAO<Facture> {
 	
+	public Facture add(Facture f, Long idReservation, Long idAgence);
+
 }

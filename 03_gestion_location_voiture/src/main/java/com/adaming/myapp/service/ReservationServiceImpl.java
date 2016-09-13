@@ -1,13 +1,18 @@
 package com.adaming.myapp.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adaming.myapp.dao.IReservationDao;
+import com.adaming.myapp.dao.IVoitureDao;
 import com.adaming.myapp.entities.Reservation;
+import com.adaming.myapp.entities.Voiture;
 
 /**
  * Version 1.0
@@ -15,11 +20,12 @@ import com.adaming.myapp.entities.Reservation;
  * @author inti0255
  *
  */
-@Service
 @Transactional
 public class ReservationServiceImpl implements IReservationService{
 	
 	Logger log = Logger.getLogger("ReservationServiceImpl");
+	
+	SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private IReservationDao dao = null; 
 
@@ -31,9 +37,8 @@ public class ReservationServiceImpl implements IReservationService{
 	}
 
 	@Override
-	public Reservation add(Reservation reservation) {
-		// TODO Auto-generated method stub
-		return dao.add(reservation);
+	public Reservation add(Reservation reservation, Long pIdAgence, Long pIdClient, Long pIdVoiture) {
+		return dao.add(reservation, pIdAgence, pIdClient, pIdVoiture);
 	}
 
 	@Override
@@ -54,5 +59,4 @@ public class ReservationServiceImpl implements IReservationService{
 		return dao.getById(pId);
 	}
 
-	
 }

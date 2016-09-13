@@ -29,6 +29,7 @@ public class Voiture {
 	private String matricule;
 	private double prix;
 	private int annee;
+	private byte[] img;
 	private String kilometrage;
 	
 	@OneToMany(mappedBy="voiture")
@@ -46,22 +47,26 @@ public class Voiture {
 	}
 
 	/**
-	 * ctor charge sans id 
+	 * ctor charge sans id
 	 * @param marque
 	 * @param modele
 	 * @param matricule
 	 * @param prix
 	 * @param annee
+	 * @param img
 	 * @param kilometrage
+	 * @param reservations
+	 * @param agence
 	 */
 	public Voiture(String marque, String modele, String matricule, double prix,
-			int annee, String kilometrage) {
+			int annee, byte[] img, String kilometrage) {
 		super();
 		this.marque = marque;
 		this.modele = modele;
 		this.matricule = matricule;
 		this.prix = prix;
 		this.annee = annee;
+		this.img = img;
 		this.kilometrage = kilometrage;
 	}
 
@@ -161,6 +166,20 @@ public class Voiture {
 	 */
 	public void setKilometrage(String kilometrage) {
 		this.kilometrage = kilometrage;
+	}
+
+	/**
+	 * @return the img
+	 */
+	public byte[] getImg() {
+		return img;
+	}
+
+	/**
+	 * @param img the img to set
+	 */
+	public void setImg(byte[] img) {
+		this.img = img;
 	}
 
 	/**

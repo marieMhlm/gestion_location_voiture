@@ -2,6 +2,8 @@ package com.adaming.myapp.service;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +17,11 @@ import com.adaming.myapp.entities.Voiture;
  * @author inti0255
  *
  */
-@Service
 @Transactional
 public class VoitureServiceImpl implements IVoitureService{
 	
 	Logger log = Logger.getLogger("VoitureServiceImpl");
-	
+	//@Inject
 	private IVoitureDao dao = null; 
 	
 	/**
@@ -31,9 +32,9 @@ public class VoitureServiceImpl implements IVoitureService{
 	}
 
 	@Override
-	public Voiture add(Voiture voiture) {
+	public Voiture add(Voiture voiture, Long pIdAgence) {
 		// TODO Auto-generated method stub
-		return dao.add(voiture);
+		return dao.add(voiture, pIdAgence);
 	}
 
 	@Override

@@ -8,6 +8,8 @@ import com.adaming.myapp.entities.Reservation;
  * @author inti0255
  *
  */
-public interface IReservationDao extends IGenericDAO<Reservation> {
+public interface IReservationDao extends IGenericDAO<Reservation>{
+
+	public Reservation add(Reservation reservation, Long pIdAgence, Long pIdClient, Long pIdVoiture);
 
 }
