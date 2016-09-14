@@ -22,7 +22,6 @@ public class ClientServiceImpl implements IClientService{
 	
 	Logger log = Logger.getLogger("ClientServiceImpl");
 	
-	@Inject
 	private IClientDao dao = null; 
 	
 	/**
