@@ -131,6 +131,7 @@ public class AgenceDaoImpl extends GenericDaoImpl<Agence> implements IAgenceDao 
 				if (facture.getDateFacturation().after(dateDebutAn) && facture.getDateFacturation().before(dateFinAn)) {
 					log.info("start 1 "+facture.getDateFacturation());
 					ca = ca + facture.getReservation().getPrixTotal();
+					log.info("le ca annuel est de " + ca +"------------------");
 				}
 			}
 			
