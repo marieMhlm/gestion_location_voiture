@@ -44,6 +44,7 @@ public class ServiceClientTestU {
 	}
 
 	@Test
+	@Ignore
 	public void testAdd() throws ParseException {
 		Date datebirth = date.parse("13/06/1995");
 		Date datePermis = date.parse("21/08/2015");
@@ -53,6 +54,7 @@ public class ServiceClientTestU {
 	}
 
 	@Test
+	@Ignore
 	public void testUpdate() {
 		Client cl = clientService.getById(1L);
 		cl.setNom("dododo");
@@ -62,15 +64,24 @@ public class ServiceClientTestU {
 	}
 
 	@Test
+	@Ignore
 	public void testGetAll() {
 		List<Client> c = clientService.getAll(); 
 		assertTrue(c.size()>0);
 	}
 
 	@Test
+	@Ignore
 	public void testGetById() {
 		Client cl = clientService.getById(1L);
 		assertTrue(cl!=null);
+	}
+	
+	@Test
+	public void isExistMail(){
+		String mail = "mmzzzzzzz@gmail.com";
+		boolean isVerif = clientService.isExistMail(mail);
+		assertTrue(isVerif == false);
 	}
 
 }

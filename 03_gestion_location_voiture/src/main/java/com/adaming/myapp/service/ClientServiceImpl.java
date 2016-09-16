@@ -55,4 +55,10 @@ public class ClientServiceImpl implements IClientService{
 		return dao.getById(pId);
 	}
 
+	@Override
+	public boolean isExistMail(String mail) {
+		// TODO Auto-generated method stub
+		return dao.isExistMail(mail);
+	}
+
 }

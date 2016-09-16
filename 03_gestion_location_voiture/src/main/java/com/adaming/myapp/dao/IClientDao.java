@@ -11,5 +11,7 @@ import com.adaming.myapp.entities.Client;
 public interface IClientDao extends IGenericDAO<Client>{
 
 	public Client add(Client client, Long pIdAgence);
+	
+	public boolean isExistMail(String mail);
 
 }

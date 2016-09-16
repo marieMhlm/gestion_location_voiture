@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
 /**
  * Version 1.0
@@ -28,7 +29,7 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_client")
-	private Long idCLient; 
+	private Long idCLient;
 	private String nom; 
 	private String prenom;
 	@Temporal(TemporalType.DATE)

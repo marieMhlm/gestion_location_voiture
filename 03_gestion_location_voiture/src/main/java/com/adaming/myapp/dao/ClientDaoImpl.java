@@ -1,10 +1,8 @@
 package com.adaming.myapp.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.apache.log4j.Logger;
 
@@ -31,6 +29,23 @@ public class ClientDaoImpl extends GenericDaoImpl<Client> implements IClientDao{
 		em.persist(client);
 		log.info("le client a bien été ajouté ");
 		return client;
+	}
+
+	@Override
+	public boolean isExistMail(String mail) {
+		Query query = em.createQuery("select count(*) from Client c where c.mail=:x");
+		query.setParameter("x", mail);
+		Long resultat = (Long) query.getSingleResult();
+		log.info("il existe "+ resultat +" de mail");
+		int r = resultat.intValue(); 
+		if (r == 0) {
+			log.info("mail n'existe pas ");
+			return false; 
+			
+		}
+		log.info("mail existe");
+		return true;
+		
 	}
 
 }

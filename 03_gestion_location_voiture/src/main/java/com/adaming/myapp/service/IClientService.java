@@ -19,4 +19,6 @@ public interface IClientService {
 	public List<Client> getAll();
 	
 	public Client getById(Long pId);
+	
+	public boolean isExistMail(String mail);
 }
